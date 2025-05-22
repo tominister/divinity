@@ -52,6 +52,14 @@ export default function GridGame() {
     return availableSquares[Math.floor(Math.random() * availableSquares.length)];
   };
 
+  const handleInaccuracy = () => {
+    if (gameState === 'playing') {
+      setConsecutiveClicks(0);
+      setMultiplier(1);
+      setMultiplierAnimation('reset');
+    }
+  };
+
   // Initialize three random lit squares
   useEffect(() => {
     if (gameState === 'playing') {
@@ -110,15 +118,7 @@ export default function GridGame() {
 
     document.addEventListener('click', handleGlobalClick);
     return () => document.removeEventListener('click', handleGlobalClick);
-  }, [gameState]);
-
-  const handleInaccuracy = () => {
-    if (gameState === 'playing') {
-      setConsecutiveClicks(0);
-      setMultiplier(1);
-      setMultiplierAnimation('reset');
-    }
-  };
+  }, [gameState, handleInaccuracy]);
 
   const startGame = () => {
     if (!isReady || !candidateName) return; // Don't start if not ready or no candidate name
@@ -331,7 +331,7 @@ export default function GridGame() {
 
           <h3 className="text-lg font-bold text-black mt-3 mb-1">Challenges:</h3>
           <ul className="list-disc pl-4 space-y-1.5 text-sm text-black">
-            <li>The top servant should beg the top Goddess for a dm. No matter how demonic you are at fps you're best place compared to her is a personal footrest while she games.</li>
+            <li>The top servant should beg the top Goddess for a dm. No matter how demonic you are at fps you&apos;re best place compared to her is a personal footrest while she games.</li>
             <li>FOR L: find the secret button by solving this → <span className="font-mono">svefg pyvpx Ernql, gura pyvpx gur grkg gung fnlf NVZ</span></li>
           </ul>
         </div>
