@@ -224,7 +224,7 @@ export default function GridGame() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 p-8">
       {/* Game Title */}
-      <h1 className="text-5xl font-bold text-black mb-12">
+      <h1 className="text-5xl font-bold text-black mb-4">
         <span 
           className={`cursor-pointer ${
             isReady && candidateName 
@@ -237,6 +237,7 @@ export default function GridGame() {
         </span>
         {' '}FOR DIVINITY
       </h1>
+      <div className="text-3xl font-bold text-black mb-12">-hwarang</div>
 
       {/* Popup */}
       {showPopup && (
